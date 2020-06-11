@@ -1,0 +1,26 @@
+Creating Django Application And Configuring To Run With Gunicorn
+
+#Creating a django application: 
+django-admin startproject <app_name> 
+
+#Traverse into the app root folder and perform db migrations using below couple of commands 
+python manage.py makemigrations 
+python manage.py migrate 
+
+#Creating superuser by executing the below command and follow instructions 
+python manage.py createsuperuser  
+
+#Running django application: 
+python manage.py runserver 127.0.0.1:8000 
+
+#Open browser and check out http://127.0.0.1:8000 which shows that the app is up and running.
+
+
+#Installing Gunicorn: 
+pip install gunicorn 
+
+#activate the virtual environment in which gunicorn installed and check whether we are able to run the app using it. 
+#navigate to the app root dirrectory.access django app at 127.0.0.1:8000 
+
+#Running django app at 127.0.0.1:8000 
+gunicorn <app_name>.wsgi:application --bind 127.0.0.1:8000 
